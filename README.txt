@@ -8,3 +8,5 @@ output: csv files containing all information about the sample
 The scrapper is multi-threaded and uses proxies in order to be discrete.
 
 The code can be run from the command line.
+
+
