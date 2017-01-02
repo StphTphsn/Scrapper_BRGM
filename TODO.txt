@@ -1,0 +1,11 @@
+- chequer le programme qui fait une liste de proxy
+
+
+
+- regulièrement sauvegarder la liste des pages crawlés OK
+- bien gérer les timeout OK
+- gerer toutes les erreurs de connexion avec les proxys OK
+- si ping worker marche pas 2x, change worker OK
+- si ping de tous marche pas 10x eteindre programme OK
+- établir une vérification dans le crawling routine pour que toute se passe bien OK
+- possibilité de récupérer d'autres adresses NOT
