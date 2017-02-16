@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Scrapper
+namespace Scraper
 {
     // This class deals with all written logs
     static class Logs
@@ -22,16 +22,9 @@ namespace Scrapper
                 using (logFile = File.AppendText(path))
                 {
                     logFile.WriteLine(line);
+                    Console.WriteLine(line);
                 }
             }
         }
     }
 }
-
-        //static Logs()
-        //{
-        //    using (MyLogFile = File.AppendText(Shared.LogPath))
-        //    {
-        //        MyLogFile.WriteLine("FRESH START");
-        //    }
-        //}

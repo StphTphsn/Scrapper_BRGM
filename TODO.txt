@@ -1,7 +1,11 @@
-- chequer le programme qui fait une liste de proxy
+- renouveler le parc completement non? avec fonction NEW_PARC = true
+- que se passe-t-il avec les crawlers qui ne trouvent plus de proxy?
+- peut-etre insiter un peu plus sur la meme ref (2x) et laisser un peu plus de chances au proxy 4 chances
+- signaler dans le log quand on change de proxy et signaler le nombre de proxys restants dans le log et sur la console au moins tous les 10
+- signaler le nombre de missions succesful/ abandonnées et le nombre de mission restantes sur la consle au moins à toutes les centaines
 
-
-
+- DO YOU WANT TO RENEW PROXY PARK? OK
+- chequer le programme qui fait une liste de proxy OK
 - regulièrement sauvegarder la liste des pages crawlés OK
 - bien gérer les timeout OK
 - gerer toutes les erreurs de connexion avec les proxys OK
@@ -9,3 +13,4 @@
 - si ping de tous marche pas 10x eteindre programme OK
 - établir une vérification dans le crawling routine pour que toute se passe bien OK
 - possibilité de récupérer d'autres adresses NOT
+

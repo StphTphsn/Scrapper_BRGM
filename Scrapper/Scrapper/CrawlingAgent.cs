@@ -7,7 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Scrapper
+namespace Scraper
 {
     // This class describes the crawling routing for one agent
     // BEWARE: The parsing is not done in this class but in the PARSER class
@@ -48,7 +48,13 @@ namespace Scrapper
                 // If we are using proxies and proxy needs to be changed, then choose a new proxy
                 if (Shared.USE_PROXY & needNewProxy)
                 {
-                    proxyIP = ChooseNewProxyIP();
+                    var NewProxyIsFound = ProxyManager.proxyList.TryDequeue(out proxyIP);
+                    // if proxy list is empty, crash the crawling agent at the end of this iteration
+                    if (!NewProxyIsFound)
+                    {
+                        Logs.Write(Shared.ERROR_LOG_FILE_PATH, "DATE:"+ DateTime.Now + "  ERROR: Proxy list is empty");
+                        crashed = true;
+                    }
                     successiveFailuresByThisProxy = 0;
                     needNewProxy = false;
                 }
@@ -102,14 +108,10 @@ namespace Scrapper
 
         }
 
-        public string ChooseNewProxyIP()
-        {
-            return "212.20.63.36:8080";
-        }
 
         public bool PageContentIsCorrect(string pageContent)
         {
-            if (!pageContent.Contains("<div id=\"content_document\" class=\"block_content\">"))
+            if (!pageContent.Contains("<div id=\"content_document\" class=\"bloc_content\">"))
             {
                 Logs.Write(Shared.ERROR_LOG_FILE_PATH, "DATE:" + DateTime.Now + "  PROXY IP:" + proxyIP + "  REFERENCE:" + reference + "  ERROR: Page Content Is Incorrect");
                 return false;
@@ -168,3 +170,8 @@ namespace Scrapper
 //string reference = "BSS000DHKH";
 //string proxyIP = "212.20.63.36:8080";
 //crawlPage(reference, proxyIP);
+
+        //public string ChooseNewProxyIP()
+        //{
+        //    return "212.20.63.36:8080";
+        //}
